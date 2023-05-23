@@ -1,0 +1,2 @@
+def comprar():
+    return
