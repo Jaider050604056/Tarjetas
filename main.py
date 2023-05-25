@@ -21,7 +21,6 @@ datos_usuarios = {
                 "tarjetas" : ["2 tarjetas"],
                 }
 
-print(repositorio["jaider sanchez"][2])
-"""
+
 if __name__ == "__main__":
-    menu(repositorio)"""
+    menu(repositorio)
