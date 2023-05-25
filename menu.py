@@ -2,7 +2,7 @@ from clear import limpiar_consola
 # from recargar import recargar
 from registro import registro
 # from comprar import comprar
-# from activar_desactivar import activar_desactivar
+from activar_desactivar import activar_desactivar
 # from reportes import reportes
 
 def menu(repositorio):
@@ -24,7 +24,7 @@ def menu(repositorio):
             #compar()
             pass
         elif opcion == 4:
-            #activar_desactivar()
+            activar_desactivar(repositorio)
             pass
         elif opcion == 5:
             #reportes()
