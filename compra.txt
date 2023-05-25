@@ -1,4 +1,1 @@
-nombre,direccion,codigo,saldo,estado
-andres,4,100001,0,activa
-lola,3,100002,0,activa
-jose,32,100003,0,activa
+
