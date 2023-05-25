@@ -2,8 +2,6 @@ import random, csv, os
      
 def comprar():
     datos={}
-    ident=100000
-    
     while True:
         print("para comprar tarjeta ingrese los siguientes datos")
         while True:
@@ -14,7 +12,7 @@ def comprar():
             else:
                 dic=(input("direccion--->"))
                 datos["direccion"]= dic
-                ident=ident+1
+                ident=random.randint(100000,999999)
                 saldo=0
                 estado="activa"
                 datos["codigo"]=ident
