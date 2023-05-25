@@ -14,7 +14,12 @@ def comprar():
                 datos["direccion"]= dic
                 ident=random.randint(100000,999999)
                 saldo=0
-                estado="activa"
+                act=input("quieres activarla?[si/no]")
+                if act =="si":
+                    estado="activa"
+                elif act =="no":
+                     estado="desactivada"
+                
                 datos["codigo"]=ident
                 datos["saldo"]=saldo
                 datos["estado"]= estado
