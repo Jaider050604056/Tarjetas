@@ -1,40 +1,65 @@
-import random
+import random, csv
 from clear import limpiar_consola
 
-datos_tarjetas = {}
-datos_usuario = {}
-
-def registro(repositorio):
-    print("Registrar usuario"); print("")
-    nombre = input("Ingrese primer nombre y primer apellido: ")
-    cedula = int(input("Ingrese numero de cedula: "))
-    direccion = input("Ingrese su dirección: ")
-    codigo = random.randint(100000,999999)
-    datos_tarjetas["nombre"] = nombre
-    datos_tarjetas["cedula"] = cedula
-    datos_tarjetas["direccion"] = direccion
-    repositorio[nombre] = [cedula,direccion,{"tarjeta 1" : [codigo, "activa", 0]}]
+def registro():
+    datos_usuario = {}
+    datos_tarjeta = {}
+    print("Create Account"); print("")
+    nombre=input("Escriba su nombre completo: ").lower()
+    cedula=int(input("Escriba su numero de cedula: "))
+    direccion=input("Escriba su dirección: ").lower()
     limpiar_consola()
-    print("Se ha creado una tarjeta de regalo")
-    print(f"Codigo de la tarjeta: {codigo}"); print("")
-    print("Desea activarla?"); print("")
-    print("1. Activar")
-    print("2. Desactivar"); print("")
-    opcion = int(input("Escriba un numero para continuar: "))
-    limpiar_consola()
-    if opcion == 1:
+    datos_usuario["nombre"] = nombre
+    datos_usuario["cedula"] = cedula
+    datos_usuario["direccion"] = direccion
+    datos_usuario["tarjetas"] = "1 tarjeta(s)"
+    datos_tarjeta["nombre"] = nombre
+    datos_tarjeta["cedula"] = cedula
+    datos_tarjeta["direccion"] = direccion
+    datos_tarjeta["tarjeta"] = "tarjeta 1"
+    def random_codigo(datos_tarjetas):
+        with open("datos tarjeta.txt","r",encoding="UTF-8") as leer_codigo:
+            reading = csv.reader = csv.DictReader(leer_codigo,delimiter=",")
+            codigos = [row["codigo"] for row in reading]
+            while True:
+                codigo_generador = random.randint(1000,9999)
+                if codigos != str(codigo_generador):
+                    datos_tarjetas["codigo"] = codigo_generador
+                    break
+    random_codigo(datos_tarjeta)
+    datos_tarjeta["estado"] = "activa"
+    datos_tarjeta["saldo"] = 0
+    print("Su tarjeta ha sido creada exitosamente"); print("")
+    option=input("Dese activar su tarjeta? (si/no): ").lower(); limpiar_consola()
+    if option == "si":
         pass
-    elif opcion == 2:
-        repositorio[nombre][2]["tarjeta 1"][1] = "no activa"
+    elif option == "no":
+        datos_tarjeta["estado"] = "no activa"
     else:
-        pass
-    print("------------------- Usuario registrado con exito -------------------"); print("")
-    print(f"Nombre: {nombre}")
-    print(f"Cedula: {cedula}")
-    print(f"Dirección: {direccion}"); print("")
-    print("Tarjeta 1"); print("")
-    print(f"Código: {codigo}")
-    print("Saldo: 0")
-    print(repositorio[nombre][2]["tarjeta 1"][1]); print("")
-    input("Pulsa enter para continuar")
+        print("Error, se tomará como un sí")
+    print("")
+    datos_usuario["nombre"] = nombre
+    datos_usuario["cedula"] = cedula
+    datos_usuario["direccion"] = direccion
+    datos_usuario["tarjetas"] = "1 tarjeta"
+    datos_tarjeta["nombre"] = nombre
+    datos_tarjeta["cedula"] = cedula
+    datos_tarjeta["tarjeta"] = "tarjeta 1"
+    print("Nombre:",datos_usuario["nombre"])
+    print("Cedula:",datos_usuario["cedula"])
+    print("Direccion:",datos_usuario["direccion"])
+    print("Numero de tarjetas: 1 tarjeta")
+    print("Codigo:", datos_tarjeta["codigo"])
+    print("Estado:",datos_tarjeta["estado"])
+    print("Saldo: 0$"); print("")
+    input("Press enter to continue")
+    with open("datos usuarios.txt", "a", encoding="UTF-8", newline="") as agregar_usuario:
+        fieldnames = datos_usuario.keys()
+        writer = csv.DictWriter(agregar_usuario, fieldnames=fieldnames, quotechar='"')
+        writer.writerow(datos_usuario)
+    with open("datos tarjeta.txt", "a", encoding="UTF-8", newline="") as agregar_tarjeta:
+        fieldnames2 = datos_tarjeta.keys()
+        writer = csv.DictWriter(agregar_tarjeta, fieldnames=fieldnames2, quotechar='"')
+        writer.writerow(datos_tarjeta)
+    limpiar_consola()
     return
