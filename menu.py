@@ -44,6 +44,7 @@ def menu():
         print("5. Reportar tarjeta")
         print("6. Salir"); print("")
         opcion=int(input("Ingrese un numero para continuar: "))
+        limpiar_consola()
         if opcion == 1:
             recargar()
             pass
@@ -51,7 +52,7 @@ def menu():
             registro()
             pass
         elif opcion == 3:
-            compar()
+            #comprar()
             pass
         elif opcion == 4:
             activar_desactivar()
