@@ -2,6 +2,7 @@ import random, csv, os
      
 def comprar():
     datos={}
+    ntarj=100
     while True:
         print("para comprar tarjeta ingrese los siguientes datos")
         while True:
@@ -10,8 +11,7 @@ def comprar():
             if nom.isnumeric():
                 print("caracter invalido")
             else:
-                dic=(input("direccion--->"))
-                datos["direccion"]= dic
+                ntarj=ntarj+1
                 ident=random.randint(100000,999999)
                 saldo=0
                 act=input("quieres activarla?[si/no]")
@@ -29,14 +29,15 @@ def comprar():
         print("=====================================================")
         print("====================TU TARJETA=======================")
         print("=====================================================")
-        print("codigo","","saldo"," ","estado"," ","direccion" ,"nombre")
+        print("Número de tarjeta" , "Código" , "Estado" , "Saldo" , "Nombres completos")
         print("=====================================================")
-        print(ident,"   ",saldo,"    ",estado,"    ",dic,"   ",nom)
+        print(ntarj,"         ",ident,"       ",estado,"     ",saldo,"     ",nom)
         print("=====================================================")
 
-    
+                    
+                        
         if not os.path.exists("estado_programa.txt"):
-            fieldnames=["nombre","direccion","codigo","saldo","estado"]
+            fieldnames=["Número de tarjeta", "Código", "Estado", "Saldo", "Nombres completos"]
             with open("compra.txt", "w", encoding="UTF-8", newline="") as f:
                     csv_write = csv.DictWriter(f, fieldnames=fieldnames, quotechar='"')
                     csv_write.writeheader()
