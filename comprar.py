@@ -57,7 +57,3 @@ def comprar():
              os.system("cls")
         elif opc == "no":
              break
-        
-             
-        
-comprar()

@@ -1,0 +1,2 @@
+nombre,cedula,direccion,tarjetas
+jaider stiveen sanchez arciniegas,1065869921,cra 31 a,1 tarjeta

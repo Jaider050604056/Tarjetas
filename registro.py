@@ -4,7 +4,7 @@ from clear import limpiar_consola
 def registro():
     datos_usuario = {}
     datos_tarjeta = {}
-    print("Create Account"); print("")
+    print("Registrarse"); print("")
     nombre=input("Escriba su nombre completo: ").lower()
     cedula=int(input("Escriba su numero de cedula: "))
     direccion=input("Escriba su dirección: ").lower()

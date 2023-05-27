@@ -1,0 +1,2 @@
+nombre,cedula,tarjeta,codigo,estado,saldo
+jaider stiveen sanchez arciniegas,1065869921,cra 31 a,tarjeta 1,9431,no activa,0

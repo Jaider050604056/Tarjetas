@@ -1,8 +1,8 @@
 import os, csv
 from clear import limpiar_consola
 from registro import registro
-from recargar import recargar
 from comprar import comprar
+from recargar import recargar
 from activar_desactivar import activar_desactivar
 from reportes import reportes
 
@@ -52,7 +52,7 @@ def menu():
             registro()
             pass
         elif opcion == 3:
-            #comprar()
+            comprar()
             pass
         elif opcion == 4:
             activar_desactivar()
